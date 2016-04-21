@@ -1,0 +1,32 @@
+   // js
+            $(".imgSelectUsers").click(function () {
+                var selecedUserType = $(this).attr("alt");
+                if (isAllowEdit.toLowerCase() == "false") {
+                    if (selecedUserType == "requestorId")
+                        return;
+                }
+                var returnDataType = '';
+                var selectUserCallbackFuc = "";
+                var selectUserValueClientID = '';
+                var selectUserTextClientID = '';
+                // —°‘Ò…Í«Î»À
+                if (selecedUserType == "requestorId") {
+                    selectUserCallbackFuc = "selectRequestorCallback";
+                    //”Ú’ ∫≈
+                    selectUserValueClientID = "<%=hidRequestorID.ClientID %>";
+                    //–’√˚
+                    selectUserTextClientID = "<%=tbRequestorID.ClientID %>";
+                }
+                selectUser(selectUserValueClientID, selectUserTextClientID, returnDataType, selectUserCallbackFuc, "true");
+            });
+
+
+//html
+
+  <td class="style1">
+                                <asp:TextBox ID="tbRequestorID" runat="server" Height="20px" nullmsg="<%$Resources:BPM,BPM_SHWelfare_JS_Requestor %>"
+                                    datatype="*" class="officialforms_input_bottomborder"></asp:TextBox>
+                                <img id="imgAddressBook" src="../images/officialforms_user.png" alt="requestorId"
+                                    class="imgSelectUsers" />
+                                <asp:HiddenField ID="hidRequestorID" runat="server" />
+                            </td>
